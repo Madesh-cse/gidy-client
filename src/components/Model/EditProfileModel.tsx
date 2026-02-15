@@ -23,6 +23,8 @@ function EditProfileModal({
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("");
 
+  const API_URL = process.env.REACT_APP_API_URL; 
+
   const [profileImageFile, setProfileImageFile] =
     useState<File | null>(null);
   const [resumeFile, setResumeFile] =
@@ -40,7 +42,7 @@ function EditProfileModal({
 
       if (profile.profileImage) {
         setPreviewImage(
-          `http://localhost:8080${profile.profileImage}`
+          `${API_URL}${profile.profileImage}`
         );
       }
     }
@@ -87,11 +89,11 @@ function EditProfileModal({
       }
 
       await axios.put(
-        "http://localhost:8080/userProfile/bio/update-bio-details",
+        `${API_URL}/userProfile/bio/update-bio-details`,
         formData
       );
 
-      alert("Profile Updated Successfully 🚀");
+      alert("Profile Updated Successfully");
 
       refreshProfile();
       onClose();

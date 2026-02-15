@@ -51,6 +51,8 @@ const AddCertificateModal = forwardRef<CertificateModalHandle,CertificateModalPr
 
   const [editId, setEditId] = useState<string | null>(null);
 
+    const API_URL = process.env.REACT_APP_API_URL;
+
   const open = (data?: CertificateData) => {
     if (data) {
       const { _id, ...rest } = data;
@@ -101,14 +103,14 @@ const AddCertificateModal = forwardRef<CertificateModalHandle,CertificateModalPr
 
       if (editId) {
         response = await axios.put(
-          `http://localhost:8080/userProfile/certificate/update-certificate/${editId}`,
+          `${API_URL}/userProfile/certificate/update-certificate/${editId}`,
           formData
         );
 
         onSave(response.data.certificate);
       } else {
         response = await axios.post(
-          "http://localhost:8080/userProfile/certificate/create",
+          `${API_URL}/userProfile/certificate/create`,
           formData
         );
 

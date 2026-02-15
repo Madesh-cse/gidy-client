@@ -14,6 +14,8 @@ function UserBio() {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
 
+  const API_URL = process.env.REACT_APP_API_URL; 
+
   useEffect(() => {
     fetchProfile();
   }, []);
@@ -21,7 +23,7 @@ function UserBio() {
   const fetchProfile = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8080/userProfile/bio/bio-details",
+        `${API_URL}/userProfile/bio/bio-details`,
       );
       setProfile(res.data.data);
     } catch (error) {
@@ -39,7 +41,7 @@ function UserBio() {
                 <img
                   src={
                     profile?.profileImage
-                      ? `http://localhost:8080${profile.profileImage}`
+                      ? `${API_URL}${profile.profileImage}`
                       : "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-user-profile-avatar-png-image_10211471.png"
                   }
                   alt="profile"
@@ -111,7 +113,7 @@ function UserBio() {
                 {profile?.resume && (
                   <div className="download-resume">
                     <a
-                      href={`http://localhost:8080${profile.resume}`}
+                      href={`${API_URL}${profile.resume}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       download

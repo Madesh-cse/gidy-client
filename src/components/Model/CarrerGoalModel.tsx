@@ -26,6 +26,7 @@ function AddCareerGoalModal({ onClose, onSave, editData }: Props) {
 
   const modalRef = useRef<HTMLDivElement>(null);
   const isEditMode = !!editData;
+   const API_URL = process.env.REACT_APP_API_URL; 
   useEffect(() => {
     if (isEditMode && editData) {
       setFormData({
@@ -48,12 +49,12 @@ function AddCareerGoalModal({ onClose, onSave, editData }: Props) {
     try {
       if (isEditMode && editData?._id) {
         await axios.put(
-          `http://localhost:8080/userProfile/career-goals/update/${editData._id}`,
+          `${API_URL}/userProfile/career-goals/update/${editData._id}`,
           formData
         );
       } else {
         await axios.post(
-          "http://localhost:8080/userProfile/career-goals/create",
+          `${API_URL}/userProfile/career-goals/create`,
           formData
         );
       }

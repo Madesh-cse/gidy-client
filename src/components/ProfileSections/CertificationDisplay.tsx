@@ -15,10 +15,12 @@ function CertificationDisplay() {
 
   const modalRef = useRef<CertificateModalHandle>(null);
 
+  const API_URL = process.env.REACT_APP_API_URL; 
+
   const fetchCertificates = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8080/userProfile/certificate/fetch",
+        `${API_URL}/userProfile/certificate/fetch`,
       );
       setCertificates(res.data.certificates);
     } catch (error) {

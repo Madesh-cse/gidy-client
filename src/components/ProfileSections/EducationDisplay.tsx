@@ -15,10 +15,11 @@ function EducationDisplay() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const modalRef = useRef<EducationModalRef>(null);
+  const API_URL = process.env.REACT_APP_API_URL; 
 
   const fetchEducation = async () => {
     const res = await axios.get(
-      "http://localhost:8080/userProfile/edu/edu-details",
+      `${API_URL}/userProfile/edu/edu-details`,
     );
     setEducationList(res.data.education);
   };

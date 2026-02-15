@@ -20,12 +20,13 @@ function ExprienceDisplay() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const modalRef = useRef<ExperienceModalHandle>(null);
+   const API_URL = process.env.REACT_APP_API_URL; 
 
   // 🔥 Fetch from backend
   const fetchExperiences = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8080/userProfile/exp/fetch",
+        `${API_URL}/userProfile/exp/fetch`,
       );
       setExperiences(res.data.exprience);
     } catch (error) {

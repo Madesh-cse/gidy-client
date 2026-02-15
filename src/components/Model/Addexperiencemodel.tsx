@@ -41,6 +41,8 @@ const ExperienceModal = forwardRef<ExperienceModalHandle, ExperienceModalProps>(
 
     const [editId, setEditId] = useState<string | null>(null);
 
+      const API_URL = process.env.REACT_APP_API_URL;
+
     const open = (data?: ExperienceData) => {
       if (data) {
         const { _id, ...rest } = data;
@@ -85,14 +87,14 @@ const ExperienceModal = forwardRef<ExperienceModalHandle, ExperienceModalProps>(
 
         if (editId) {
           response = await axios.put(
-            `http://localhost:8080/userProfile/exp/update/${editId}`,
+            `${API_URL}/userProfile/exp/update/${editId}`,
             formData,
           );
 
           onSave(response.data.updated);
         } else {
           response = await axios.post(
-            "http://localhost:8080/userProfile/exp/create",
+            `${API_URL}/userProfile/exp/create`,
             formData,
           );
 

@@ -40,6 +40,8 @@ const EducationModal = forwardRef<EducationModalRef, Props>(
 
     const [editId, setEditId] = useState<string | null>(null);
 
+     const API_URL = process.env.REACT_APP_API_URL;
+
     const open = (data?: EducationData) => {
       if (data) {
         setFormData({
@@ -86,12 +88,12 @@ const EducationModal = forwardRef<EducationModalRef, Props>(
 
         if (editId) {
           response = await axios.put(
-            `http://localhost:8080/userProfile/edu/update/${editId}`,
+            `${API_URL}/userProfile/edu/update/${editId}`,
             formData,
           );
         } else {
           response = await axios.post(
-            "http://localhost:8080/userProfile/edu/create",
+            `${API_URL}/userProfile/edu/create`,
             formData,
           );
         }

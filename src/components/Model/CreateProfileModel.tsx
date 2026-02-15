@@ -21,6 +21,8 @@ function CreateProfileModal({
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("");
 
+   const API_URL = process.env.REACT_APP_API_URL; 
+
   const [profileImageFile, setProfileImageFile] =
     useState<File | null>(null);
   const [resumeFile, setResumeFile] =
@@ -79,7 +81,7 @@ function CreateProfileModal({
       }
 
       await axios.post(
-        "http://localhost:8080/userProfile/bio/create",
+        `${API_URL}/userProfile/bio/create`,
         formData
       );
 

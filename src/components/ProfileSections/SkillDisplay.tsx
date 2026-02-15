@@ -19,11 +19,12 @@ function SkillDisplay({ refresh }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editData, setEditData] = useState<string[]>([]);
   const [editId, setEditId] = useState<string | null>(null);
+   const API_URL = process.env.REACT_APP_API_URL; 
 
   const fetchSkills = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8080/userProfile/skill/fetch",
+        `${API_URL}/userProfile/skill/fetch`,
       );
 
       if (Array.isArray(res.data)) {

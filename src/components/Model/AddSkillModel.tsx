@@ -35,6 +35,7 @@ function AddSkillModal({ onClose, onSave, editSkills, skillId }: Props) {
   const [filtered, setFiltered] = useState<string[]>([]);
 
   const isEditMode = !!editSkills && !!skillId;
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     if (isEditMode && editSkills) {
@@ -67,11 +68,11 @@ function AddSkillModal({ onClose, onSave, editSkills, skillId }: Props) {
   const handleSave = async () => {
     try {
       if (isEditMode && skillId) {
-        await axios.put(`http://localhost:8080/userProfile/skill/update/${skillId}`, {
+        await axios.put(`${API_URL}/userProfile/skill/update/${skillId}`, {
           skills: selectedSkills,
         });
       } else {
-        await axios.post("http://localhost:8080/userProfile/skill/create", {
+        await axios.post(`${API_URL}/userProfile/skill/create`, {
           skills: selectedSkills,
         });
       }
