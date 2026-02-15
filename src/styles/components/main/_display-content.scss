@@ -1,0 +1,214 @@
+/* ================= THEME VARIABLES ================= */
+:root {
+  --exp-card-bg: #ffffff;
+  --exp-card-shadow: rgba(149, 157, 165, 0.2);
+  --exp-title-color: #111827;
+  --exp-subtitle-color: #374151;
+  --exp-text-color: #6b7280;
+  --exp-icon-bg: #4285f40d;
+  --exp-icon-border: #4285f44d;
+  --exp-icon-color: #4285f4;
+  --exp-hover-shadow: rgba(0, 0, 0, 0.12);
+  --exp-menu-bg: #ffffff;
+  --exp-menu-border: #e5e7eb;
+  --exp-menu-hover: #f3f4f6;
+  --exp-menu-color: #6b7280;
+  --exp-menu-hover-color: #111827;
+  --exp-model-btn: #02b74b;
+  --exp-model-btn-hover: #02953f;
+}
+
+[data-theme="dark"] {
+  --exp-card-bg: #2c2c2c;
+  --exp-card-shadow: rgba(0, 0, 0, 0.6);
+  --exp-title-color: #f5f5f5;
+  --exp-subtitle-color: #d1d5db;
+  --exp-text-color: #9ca3af;
+  --exp-icon-bg: #1e293b;
+  --exp-icon-border: #3b82f6;
+  --exp-icon-color: #3b82f6;
+  --exp-hover-shadow: rgba(255, 255, 255, 0.1);
+  --exp-menu-bg: ##2c2c2c;
+  --exp-menu-border: #374151;
+  --exp-menu-hover: #11182733;
+  --exp-menu-color: #d1d5db;
+  --exp-menu-hover-color: #ffffff;
+  --exp-model-btn: #22c55e;
+  --exp-model-btn-hover: #16a34a;
+}
+
+.Exprience-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .exprience-card {
+    width: 620px;
+    background-color: var(--exp-card-bg);
+    border-radius: 15px;
+    box-shadow: 0 8px 24px var(--exp-card-shadow);
+    margin-bottom: 15px;
+    padding: 16px 20px;
+    transition: all 0.3s ease;
+    position: relative;
+
+    &:hover {
+      box-shadow: 0 10px 30px var(--exp-hover-shadow);
+    }
+
+    .flex-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--exp-title-color);
+      }
+
+      .model-btn {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 22px;
+        color: var(--exp-model-btn);
+        transition: 0.2s;
+
+        &:hover {
+          transform: scale(1.1);
+          color: var(--exp-model-btn-hover);
+        }
+      }
+    }
+
+    .experience-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; 
+      position: relative;
+      padding: 10px 0;
+      gap: 10px;
+
+      .exp-left {
+        display: flex;
+        align-items: center; 
+        gap: 10px;
+        flex: 1;
+
+        .exp-content {
+          display: flex;
+          align-items: center; 
+          gap: 10px;
+
+          .exp-img {
+            width: 67px;
+            height: 67px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--exp-icon-border);
+            background-color: var(--exp-icon-bg);
+            flex-shrink: 0;
+
+            svg {
+              width: 24px;
+              height: 24px;
+              color: var(--exp-icon-color);
+            }
+          }
+
+          .exp-info {
+            h5 {
+              font-size: 15px;
+              font-weight: 600;
+              color: var(--exp-title-color);
+              margin: 0;
+            }
+
+            .company {
+              font-size: 12px;
+              color: var(--exp-subtitle-color);
+            }
+
+            .location,
+            .date {
+              font-size: 13px;
+              color: var(--exp-text-color);
+            }
+          }
+        }
+      }
+
+      .dropdown-wrapper {
+        position: relative; 
+        cursor: pointer;
+        font-size: 18px;
+        color: var(--exp-menu-color);
+        display: flex;
+        align-items: center;
+
+        &:hover {
+          color: var(--exp-menu-hover-color);
+        }
+
+        .dropdown-menu {
+          position: absolute;
+          top: 30px;
+          right: 0;
+          background: var(--exp-menu-bg);
+          border: 1px solid var(--exp-menu-border);
+          border-radius: 8px;
+          padding: 6px 0;
+          min-width: 100px;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+
+          button {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 8px 14px;
+            text-align: left;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--exp-menu-color);
+            transition: 0.2s;
+
+            &:hover {
+              background: var(--exp-menu-hover);
+              color: var(--exp-menu-hover-color);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .Exprience-container {
+    .exprience-card {
+      width: 100%;
+      padding: 12px 16px;
+
+      .flex-layout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .experience-item {
+        flex-direction: row; 
+        gap: 8px;
+
+        .exp-left .exp-content .exp-info {
+          margin-top: 0; 
+        }
+
+        .dropdown-wrapper {
+          margin-left: auto; 
+        }
+      }
+    }
+  }
+}
+

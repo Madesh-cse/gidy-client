@@ -1,0 +1,233 @@
+/* ================= THEME VARIABLES ================= */
+:root {
+  --modal-bg: #ffffff;
+  --overlay-bg: rgba(0, 0, 0, 0.45);
+  --text-color: #111827;
+  --text-secondary: #5f6368;
+  --input-bg: #fff;
+  --input-border: #e5e7eb;
+  --input-focus: #02b74b;
+  --skill-bg: #f0fdf4;
+  --skill-color: #166534;
+  --skill-border: #bbf7d0;
+  --skill-hover: #dc2626;
+  --btn-bg: #4285f4;
+  --btn-text: #fff;
+  --cancel-text: #5f6368;
+  --suggestion-bg: #ffffff;
+  --suggestion-hover: #f3f4f6;
+  --shadow: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+  --modal-bg: #1e1e1e;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --text-color: #f5f5f5;
+  --text-secondary: #a1a1aa;
+  --input-bg: #2c2c2c;
+  --input-border: #3f3f46;
+  --input-focus: #22c55e;
+  --skill-bg: #2c2c2c;
+  --skill-color: #f0fdf4;
+  --skill-border: #22c55e;
+  --skill-hover: #f87171;
+  --btn-bg: #2563eb;
+  --btn-text: #fff;
+  --cancel-text: #a1a1aa;
+  --suggestion-bg: #2c2c2c;
+  --suggestion-hover: #3f3f46;
+  --shadow: rgba(0, 0, 0, 0.7);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  padding: 15px;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 480px;
+  position: absolute;
+  top: 30px;
+  background: var(--modal-bg);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 50px var(--shadow);
+  animation: scaleIn 0.2s ease-in-out;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: var(--text-color);
+  }
+
+  .skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--skill-bg);
+    color: var(--skill-color);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin: 4px 6px 4px 0;
+    border: 1px solid var(--skill-border);
+    transition: 0.2s ease;
+
+    button {
+      background: none;
+      border: none;
+      font-size: 12px;
+      cursor: pointer;
+      color: var(--skill-color);
+      padding: 0;
+      transition: 0.2s;
+
+      &:hover {
+        color: var(--skill-hover);
+      }
+    }
+  }
+
+  input {
+    width: 90%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    font-size: 14px;
+    margin-top: 12px;
+    outline: none;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: all 0.2s;
+
+    &:focus {
+      border-color: var(--input-focus);
+      box-shadow: 0 0 0 2px rgba(2, 183, 75, 0.15);
+    }
+  }
+
+  .suggestion-box {
+    margin-top: 8px;
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    max-height: 160px;
+    overflow-y: auto;
+    background: var(--suggestion-bg);
+    box-shadow: 0 8px 20px var(--shadow);
+
+    .suggestion-item {
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      color: var(--text-color);
+
+      &:hover {
+        background: var(--suggestion-hover);
+      }
+    }
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+
+    .cancel-btn {
+      border: none;
+      background: transparent;
+      outline: none;
+      cursor: pointer;
+      color: var(--cancel-text);
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .save-btn {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: background 0.2s;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-box {
+    max-width: 95%;
+    padding: 20px;
+
+    h3 {
+      font-size: 16px;
+    }
+
+    input {
+      font-size: 13px;
+    }
+
+    .skill-tag {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-box {
+    padding: 18px;
+    border-radius: 12px;
+  }
+}
+
+* {
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}

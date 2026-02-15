@@ -1,0 +1,377 @@
+/* ================= THEME VARIABLES ================= */
+:root {
+  --bg: #f9fafb;
+  --text: #111827;
+  --card-bg: #fff;
+  --card-shadow: rgba(149, 157, 165, 0.2);
+  --border: #e5e7eb;
+  --secondary-text: #6b7280;
+  --hover-bg: #f3f4f6;
+  --link-color: #2563eb;
+  --resume-bg: #e0edff;
+  --resume-border: #bfdbfe;
+  --award-color: #fdb100;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --text: #f5f5f5;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --border: #333;
+  --secondary-text: #a1a1a1;
+  --hover-bg: #2a2a2a;
+  --link-color: #60a5fa;
+  --resume-bg: #1f2937;
+  --resume-border: #4b5563;
+  --award-color: #fbbf24;
+}
+
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: sans-serif;
+  transition: all 0.3s ease;
+}
+
+
+.user-bio-container {
+  max-width: 1100px;
+  margin: 2.1rem auto;
+  padding: 0 2rem;
+}
+
+.user-bio-card {
+  position: relative;
+  background-color: var(--card-bg);
+  min-height: 250px;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px var(--card-shadow);
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.user-profile-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-left-column {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.user-profile-image {
+  flex-shrink: 0;
+
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--hover-bg);
+  }
+}
+
+.user-profile-name {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  span {
+    font-size: 14px;
+    color: var(--secondary-text);
+    margin-top: 4px;
+  }
+}
+
+.user-right-column {
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  .three-dot {
+    font-size: 22px;
+    color: var(--secondary-text);
+    padding: 6px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: var(--hover-bg);
+    }
+  }
+
+  .edit-dropdown {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    width: 170px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    z-index: 10;
+    border: 1px solid var(--border);
+
+    button {
+      padding: 0.75rem 1rem;
+      border: none;
+      background: none;
+      text-align: left;
+      font-size: 14px;
+      cursor: pointer;
+      color: var(--text);
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: var(--hover-bg);
+      }
+    }
+  }
+}
+
+.user-bio-text {
+  margin-top: 1.5rem;
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--secondary-text);
+}
+
+.user-achivement {
+  margin-top: 1.5rem;
+
+  .user-achivement-flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .user-mail-resume {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      min-width: 220px;
+
+      .user-email {
+        font-size: 14px;
+        word-break: break-word;
+
+        .email-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--link-color);
+          padding: 6px 10px;
+          border-radius: 6px;
+          transition: 0.2s ease;
+
+          &:hover {
+            background: var(--hover-bg);
+          }
+        }
+
+        .email-icon {
+          font-size: 16px;
+        }
+      }
+
+      .download-resume {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--resume-bg);
+        border: 1px solid var(--resume-border);
+        border-radius: 6px;
+        padding: 6px 14px;
+        transition: 0.3s ease;
+        color: var(--link-color);
+        cursor: pointer;
+        width: fit-content;
+
+        &:hover {
+          background-color: var(--hover-bg);
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .user-reward {
+      .reward-box {
+        width: 100%;
+        max-width: 260px;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px;
+        transition: all 0.3s ease;
+
+        .reward-flex {
+          display: flex;
+          gap: 15px;
+          align-items: center;
+
+          .reward-img img {
+            width: 50px;
+            height: 50px;
+          }
+
+          .reward-caatagory {
+            display: flex;
+            gap: 20px;
+
+            .league,
+            .rank,
+            .points {
+              p {
+                color: var(--secondary-text);
+                font-size: 12px;
+                margin: 0;
+              }
+
+              h4 {
+                color: var(--text);
+                font-size: 14px;
+                font-weight: 600;
+                margin: 2px 0 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.review-awards {
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  color: var(--award-color);
+  font-size: 14px;
+
+  span {
+    margin-left: 5px;
+  }
+}
+
+.level-up-profile-container {
+  width: 100%;
+  .level-up-layout {
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    display: flex;
+    gap: 20px;
+    font-family: sans-serif;
+  }
+
+  .level-up-section {
+    flex: 0 0 400px;
+  }
+
+  .profile-content {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .user-bio-container {
+    padding: 0 1rem;
+  }
+  .user-profile-image img {
+    width: 60px;
+    height: 60px;
+  }
+  .user-profile-name h1 {
+    font-size: 18px;
+  }
+  .user-achivement-flex {
+    flex-direction: column;
+  }
+  .reward-box {
+    max-width: 100%;
+  }
+  .review-awards {
+    position: static;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .user-achivement-flex {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .user-mail-resume {
+    flex: 1;
+  }
+  .user-reward {
+    flex-shrink: 0;
+  }
+  .reward-box {
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .level-up-profile-container .level-up-layout {
+    flex-direction: column;
+    gap: 16px;
+    margin: 1.5rem auto;
+  }
+  .level-up-section {
+    width: 100%;
+    flex: unset;
+  }
+  .profile-content {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .level-up-section {
+    flex: 0 0 320px;
+  }
+}
+
+* {
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
