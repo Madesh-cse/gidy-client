@@ -26,7 +26,7 @@ function AddCareerGoalModal({ onClose, onSave, editData }: Props) {
 
   const modalRef = useRef<HTMLDivElement>(null);
   const isEditMode = !!editData;
-   const API_URL = process.env.REACT_APP_API_URL; 
+   const API_URL =  import.meta.env.VITE_API_URL;; 
   useEffect(() => {
     if (isEditMode && editData) {
       setFormData({

@@ -35,7 +35,7 @@ function AddSkillModal({ onClose, onSave, editSkills, skillId }: Props) {
   const [filtered, setFiltered] = useState<string[]>([]);
 
   const isEditMode = !!editSkills && !!skillId;
-  const API_URL = process.env.REACT_APP_API_URL;
+  const API_URL =  import.meta.env.VITE_API_URL;;
 
   useEffect(() => {
     if (isEditMode && editSkills) {
