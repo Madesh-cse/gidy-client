@@ -1,77 +1,50 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# 🚀 Gidy.ai – Client (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend application for Gidy.ai Profile Management Platform built using React, TypeScript, and SCSS.
 
-Currently, two official plugins are available:
+This client provides a responsive and modern interface where users can create, edit, and manage their professional profiles with a centralized Light/Dark theme system.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🌟 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Profile Creation & Editing  
+Users can dynamically create and update their professional profile details.
 
-## Expanding the ESLint configuration
+Education & Experience Management  
+Dedicated modular components for handling education and work experience.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Career Goals Section  
+Structured goal management with real-time UI updates.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Profile Image Upload  
+Integrated image upload and display functionality.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Global Light/Dark Theme System (Innovation)  
+A centralized theme architecture using React state and SCSS variables for smooth and scalable theme switching.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Fully Responsive Design  
+Optimized for mobile, tablet, and desktop devices.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Backend API Integration  
+Connected to Railway-deployed Node.js backend.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-=======
-# gidy-client
->>>>>>> 6d4467fb9c37c0c0e7990df573f4e92aaae3f90f
+## 🛠️ Tech Stack
+
+- React.js (v18+)
+- TypeScript
+- SCSS (Modular Styling)
+- Axios
+- Vite
+
+---
+
+# ⚙️ Installation & Setup
+
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/yourusername/gidy-ai-profile.git
+cd gidy-ai-profile/client
