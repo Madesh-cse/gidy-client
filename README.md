@@ -48,26 +48,36 @@ Connected to Railway-deployed Node.js backend.
 ```bash
 git clone https://github.com/yourusername/gidy-ai-profile.git
 cd gidy-ai-profile/client
+```
 
 2️⃣ Install Dependencies
+
+```bash
 npm install
+```
 
 3️⃣ Environment Configuration
 
 Create a .env file inside the /client directory:
 
+```bash
 VITE_API_URL=http://localhost:5000
+```
 
 
 For production, replace this with your Railway backend URL.
 
 4️⃣ Run Development Server
+```bash
 npm run dev
+```
 
 
 Frontend runs at:
 
+```bash
 http://localhost:5173
+```
 
 💡 Innovation – Centralized Theme Architecture
 
