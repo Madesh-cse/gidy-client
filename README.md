@@ -61,7 +61,7 @@ npm install
 Create a .env file inside the /client directory:
 
 ```bash
-VITE_API_URL=http://localhost:5000
+VITE_API_URL=http://<backend deployed url>
 ```
 
 
@@ -103,5 +103,4 @@ Database hosted on MongoDB Atlas
 
 👨‍💻 Author
 
-Madesh Mohan
-MERN Stack Developer
+Madesh 
