@@ -19,14 +19,15 @@ function CarrerGoals() {
     undefined,
   );
   const [loading, setLoading] = useState(true);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   // Fetch all career goals
   const fetchGoals = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/userProfile/career-goals/fetch",
+        `${API_URL}/userProfile/career-goals/fetch`,
       );
-      setCareerGoals(response.data.goals || []);
+      setCareerGoals(response.data.data || []);
     } catch (err) {
       console.error("Error fetching career goals:", err);
       setCareerGoals([]);

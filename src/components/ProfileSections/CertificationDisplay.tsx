@@ -22,9 +22,10 @@ function CertificationDisplay() {
       const res = await axios.get(
         `${API_URL}/userProfile/certificate/fetch`,
       );
-      setCertificates(res.data.certificates);
+      setCertificates(res.data?.data || []);
     } catch (error) {
       console.error(error);
+      setCertificates([]);
     }
   };
 
